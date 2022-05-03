@@ -54,7 +54,7 @@ const getPics = async (past) => {
 
     for (let index = 0; index < data.length; index++) {
         const d = data[index]
-        const title = `${d.title_secondary_txt.substr(0, 20)} - ${d.title_primary_txt.substr(0, 20)}.jpeg`.replace(/\//g, '-')
+        const title = `${d.title_secondary_txt.substr(0, 20)} - ${d.title_primary_txt.substr(0, 20)}.jpeg`.replace(/\//g, '-').replace(/\\/g, '-')
         await download(d.image.image_src, title, () => console.log('download done, file: ', title))
     }
 }
